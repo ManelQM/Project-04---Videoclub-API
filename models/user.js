@@ -13,10 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.hasMany(models.Order, {
         foreignKey: 'userId'
-      });
-    }
-    static associate(models) {
-      // define association here
+      })
       this.hasMany(models.Serieorder, {
         foreignKey: 'userId'
       });

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.Order, {
+      this.hasMany(models.erieorder, {
         foreignKey: 'serieId'
       });
     }
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     year: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'serie',
+    modelName: 'Serie',
   });
   return serie;
 };
