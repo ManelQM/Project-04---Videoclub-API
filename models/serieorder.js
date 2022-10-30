@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'serieorder',
+    modelName: 'Serieorder',
   });
   return serieorder;
 };

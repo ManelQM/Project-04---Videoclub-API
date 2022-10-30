@@ -14,12 +14,15 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Order, {
         foreignKey: 'userId'
       })
+    }
+    static associate(models) {
+      // define association here
       this.hasMany(models.Serieorder, {
         foreignKey: 'userId'
-      });
+      })
     }
-
   }
+
   User.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
