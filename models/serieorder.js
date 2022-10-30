@@ -11,10 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Serie, { 
+        foreignKey: 'serieId' 
+      }); 
+      this.belongsTo(models.User, { 
+        foreignKey: 'userId' 
+      });
     }
   }
   serieorder.init({
-    date: DataTypes.STRING
+    date: DataTypes.STRING,
+    serieId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'serieorder',
