@@ -8,7 +8,7 @@ app.use (express.json());
 app.use (router); 
 
 app.listen(PORT, () => {
-    console.log (`Gate of Code nº ${PORT }`);
+    console.log (`Gate of Hell nº ${PORT }`);
     
     // db.authenticate().then( () => {
     //     console.log ('This is my db');
