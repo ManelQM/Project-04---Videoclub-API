@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
 
     try {
 
-      let resultado = await Film.findOne();
+      let resultado = await Film.findAll();
         
         if(resultado[0].id !== undefined){
             res.send(resultado)
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 })
 
 
-router.get('/films/:id', (req, res) => {
+router.get('/search/:id', (req, res) => {
     let filmid = req.params.id
     Film.findByPk(filmid)
     .then(resp => {
