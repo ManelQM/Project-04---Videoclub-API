@@ -26,7 +26,7 @@ FilmsController.getAll = (req, res) => {
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "If you are searching for a Netflix film your are in the wrong place"
+            err.message || "Error"
         });
       });
   };
@@ -51,4 +51,18 @@ FilmsController.getAll = (req, res) => {
       });
   };
   
+
+  FilmsController.getByTitle = (req,res) => {
+    const title = req.params.title
+    Film.findAll( {where: {title: title}})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "If you are searching for a Netflix film your are in the wrong place"
+      });
+    });
+  }
   module.exports = FilmsController;

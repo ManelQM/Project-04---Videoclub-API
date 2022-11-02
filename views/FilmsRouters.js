@@ -20,7 +20,7 @@ const FilmsController = require('../controllers/FilmsController');
 
 router.get('/', FilmsController.getAll);
 router.get('/:id', FilmsController.getById);
-
+router.get('/title/:title', FilmsController.getByTitle);
 
 
 module.exports = router;
