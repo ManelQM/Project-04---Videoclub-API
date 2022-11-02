@@ -26,7 +26,7 @@ FilmsController.getAll = (req, res) => {
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Ha surgido algún error al intentar acceder a las películas."
+            err.message || "If you are searching for a Netflix film your are in the wrong place"
         });
       });
   };
