@@ -22,6 +22,7 @@ const SeriesController = require('../controllers/SeriesController').
 //     };
 // })
 
+
 router.get('/', SeriesController.getAll);
 router.get('/:id', SeriesController.getById);
 router.get('/title/:title', SeriesController.getByTitle);
