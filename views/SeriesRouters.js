@@ -1,24 +1,30 @@
 const router = require('express').Router();
 
-const {Serie} = require('../models/index');
+const SeriesController = require('../controllers/SeriesController').
 
 
-router.get('/', async (req, res) => {
+
+// router.get('/', async (req, res) => {
 
 
-    try {
+//     try {
 
-        let resultado = await Serie.findAll();
+//         let resultado = await Serie.findAll();
         
-        //Si resultado no esta vacia.....
-        if(resultado[0].id !== undefined){
-            res.send(resultado)
-        };
+//         //Si resultado no esta vacia.....
+//         if(resultado[0].id !== undefined){
+//             res.send(resultado)
+//         };
 
 
-    } catch (error) {
-        console.log(error);
-    };
-})
+//     } catch (error) {
+//         console.log(error);
+//     };
+// })
+
+router.get('/', SeriesController.getAll);
+router.get('/:id', SeriesController.getById);
+router.get('/title/:title', SeriesController.getByTitle);
+router.get('/genre/:genre', SeriesController.getByGenre);
 
 module.exports = router;

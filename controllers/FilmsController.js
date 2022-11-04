@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {Film} = require('../models/index');
-const FilmsController = {}; 
+const FilmsController = {};    
 
 
 // router.get('/', async (req, res) => {
@@ -33,14 +33,14 @@ FilmsController.getAll = (req, res) => {
 
   FilmsController.getById = (req, res) => {
     const id = req.params.id;
-  
+  console.log ('estoy en geybyId'); 
     Film.findByPk(id)
       .then(data => {
         if (data) {
           res.send(data);
         } else {
           res.status(404).send({
-            message: `Dude, this film with the id ${id} its only in your mind.`
+            message: `Dude, this film with the ${id} its only in your mind.`
           });
         }
       })
@@ -65,4 +65,23 @@ FilmsController.getAll = (req, res) => {
       });
     });
   }
+
+  FilmsController.getByGenre = (req,res) => {
+   
+    const genre = req.params.genre
+    console.log (genre, 'estoy en el genre')
+    Film.findAll({where: {genre: genre}})
+    .then(data => {
+      res.send(data);
+    }) 
+    .catch(err => {
+      res.status(500).send({
+        message:
+        err.message || "We dont have that kind of movies, no love, no drama , just have fun"
+      });
+    });
+  }
+  
+
+
   module.exports = FilmsController;
