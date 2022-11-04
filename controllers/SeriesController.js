@@ -4,7 +4,6 @@ const SeriesController = {};
 
 SeriesController.getById = (req, res) => {
     const id = req.params.id;
-  console.log 
     Serie.findByPk(id)
       .then(data => {
         if (data) {
@@ -21,7 +20,35 @@ SeriesController.getById = (req, res) => {
         });
       });
   };
+
+  SeriesController.getByTitle = (req,res) => {
+    const title = req.params.title
+    Serie.findAll( {where: {title: title}})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "If you are searching for a Netflix serie your are in the wrong place"
+      });
+    });
+  }
+
+  SeriesController.getByGenre = (req,res) => {
+   
+    const genre = req.params.genre
+    Serie.findAll({where: {genre: genre}})
+    .then(data => {
+      res.send(data);
+    }) 
+    .catch(err => {
+      res.status(500).send({
+        message:
+        err.message || "We dont have that kind of serie, no love, no drama , just have fun"
+      });
+    });
+  }
   
-
-
-module.exports = router; 
+  
+module.exports = SeriesController; 

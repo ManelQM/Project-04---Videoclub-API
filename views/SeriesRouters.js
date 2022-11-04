@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const SeriesController = require('../controllers/SeriesController').
+const SeriesController = require('../controllers/SeriesController');
 
 
 
@@ -23,9 +23,9 @@ const SeriesController = require('../controllers/SeriesController').
 // })
 
 
-router.get('/', SeriesController.getAll);
+// router.get('/', SeriesController.getAll);
 router.get('/:id', SeriesController.getById);
-router.get('/title/:title', SeriesController.getByTitle);
-router.get('/genre/:genre', SeriesController.getByGenre);
+// router.get('/title/:title', SeriesController.getByTitle);
+// router.get('/genre/:genre', SeriesController.getByGenre);
 
 module.exports = router;
