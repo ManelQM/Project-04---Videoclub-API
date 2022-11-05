@@ -25,7 +25,7 @@ const SeriesController = require('../controllers/SeriesController');
 
 // router.get('/', SeriesController.getAll);
 router.get('/:id', SeriesController.getById);
-router.get('/tittle/:tittle', SeriesController.getByTitle);
+router.get('/title/:title', SeriesController.getByTitle);
 router.get('/genre/:genre', SeriesController.getByGenre);
 
 module.exports = router;

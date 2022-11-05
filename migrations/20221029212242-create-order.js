@@ -29,8 +29,9 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      date: {
-        type: Sequelize.STRING
+      rented: {
+        type: DataTypes.BOOLEAN,
+      allowNull: false
       },
       createdAt: {
         allowNull: false,

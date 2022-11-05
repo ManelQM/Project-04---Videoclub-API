@@ -20,6 +20,11 @@ module.exports = {
           len: [1, 100],
         },
       },
+      password: {
+        type: String,
+        required: true,
+  
+      },
       age: {
         type: Sequelize.INTEGER,
       },

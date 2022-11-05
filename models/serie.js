@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   serie.init({
-    tittle: DataTypes.STRING,
+    title: DataTypes.STRING,
     genre: DataTypes.STRING,
     year: DataTypes.INTEGER
   }, {
