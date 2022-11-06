@@ -20,26 +20,22 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Users',
-          key: 'id'
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+      model: 'Users',
+      key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
       rented: {
-        type: Sequelize.BOOLEAN,
+      type: Sequelize.BOOLEAN,
       allowNull: false
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      date: {
+      type: Sequelize.STRING, 
+      allowNull: false  
       }
     });
   },

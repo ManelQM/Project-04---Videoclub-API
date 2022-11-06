@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Serieorder',
+    timestamps: false
   });
   return serieorder;
 };

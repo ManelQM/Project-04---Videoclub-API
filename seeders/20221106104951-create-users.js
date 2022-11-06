@@ -20,7 +20,7 @@ module.exports = {
       password: "holidaysinsiberia"  
       },
       {
-      name: "Schopenchauer",
+      name: "Schopenhauer",
       email: "worldofwill@gmail.com",
       password: "mahabharata"  
       }, 

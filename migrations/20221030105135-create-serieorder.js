@@ -30,20 +30,16 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       rented: {
-        type: Sequelize.BOOLEAN,
+      type: Sequelize.BOOLEAN,
       allowNull: false
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      date: {
+      type: Sequelize.STRING,
+      allowNull : false  
       }
     });
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Serieorders');
-  }
+  // async down(queryInterface, Sequelize) {
+  //   await queryInterface.dropTable('Serieorders');
+  // }
 };

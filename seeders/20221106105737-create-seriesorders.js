@@ -4,7 +4,7 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
  
-      await queryInterface.bulkInsert('Seriesorders', [
+      await queryInterface.bulkInsert('Serieorders', [
         {
           date: "11-11-22",
           serieid: 1,
@@ -19,7 +19,7 @@ module.exports = {
           },
           {
           date: "8-11-22",
-          serieid: 1,
+          serieid: 4,
           userid: 5,
           rented: true
           },
@@ -31,8 +31,8 @@ module.exports = {
           },
           {
           date: "4-11-22",
-          serieid: 4,
-          userid: 4,
+          serieid: 6,
+          userid: 6,
           rented: true
           }
       ], 
@@ -41,6 +41,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-     await queryInterface.bulkDelete('Seriesorders', null, {});
+     await queryInterface.bulkDelete('Serieorders', null, {});
   }
 };

@@ -31,7 +31,6 @@ module.exports = (sequelize, DataTypes) => {
   {
     sequelize,
     modelName: 'User',
-    //Evita que sequelize nos genere los campos createdAt y modifiedAt en la tabla
     timestamps: false
   });
   return User;
