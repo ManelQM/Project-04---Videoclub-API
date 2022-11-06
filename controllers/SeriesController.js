@@ -50,5 +50,19 @@ SeriesController.getById = (req, res) => {
     });
   }
   
-  
+  SeriesController.getByToprated = (req, res) => {
+    
+    let trated = req.params.toprated
+    
+    Serie.findAll( {where: {toprated: trated}})
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Error no toprated serie"
+        });
+      });
+  };
 module.exports = SeriesController; 

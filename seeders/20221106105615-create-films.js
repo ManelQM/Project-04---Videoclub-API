@@ -9,22 +9,22 @@ module.exports = {
       {
       title:"The Exorcist",
       genre:"Horror",
-      toprated : true 
+      toprated : false
       },
       {
       title: "The good, the bad and the ugly",
       genre: "Western",
-      toprated: false  
+      toprated: true 
       },
       {
       title: "Ran",
       genre: "Kurosawa",
-      toprated: true  
+      toprated: true 
       },
       {
       title: "Nosferatu",
       genre: "Horror",
-      toprated: true  
+      toprated: false  
       },
       {
       title: "Seven Samurai",

@@ -32,8 +32,7 @@ FilmsController.getAll = (req, res) => {
   };
 
   FilmsController.getById = (req, res) => {
-    const id = req.params.id;
-  console.log ('estoy en geybyId'); 
+    const id = req.params.id; 
     Film.findByPk(id)
       .then(data => {
         if (data) {
@@ -99,4 +98,4 @@ FilmsController.getAll = (req, res) => {
   };
   
 
-  module.exports = FilmsController;
+  module.exports = FilmsController; 
