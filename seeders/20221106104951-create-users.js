@@ -41,7 +41,7 @@ module.exports = {
       },
       {
       name: "Satan",
-      email: "isnthothere@gmail.com",
+      email: "ishothere@gmail.com",
       password: "imissmyfather"  
       }
       ], {});
