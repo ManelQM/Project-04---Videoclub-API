@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Serie',
+    timestamps: false
   });
   return serie;
 };
