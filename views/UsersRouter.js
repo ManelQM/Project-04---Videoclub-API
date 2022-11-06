@@ -2,7 +2,6 @@
 const router = require('express').Router();
 
 const UsersController = require('../controllers/UsersController');
-const { User } = require('../models/index');
 
 // const db = require('../db/db')
 
@@ -11,5 +10,5 @@ const { User } = require('../models/index');
 
 
 router.post('/newUser', UsersController.signUp);
-router.get('/User/:User', UsersController.findOne);
+router.get('/:id', UsersController.getById);
 module.exports = router;
