@@ -27,7 +27,7 @@ module.exports = {
       {
       name: "God",
       email: "ilostmyson@gmail.com",
-      password: "idontlikepeople"  
+      password: "idontlikepeoplesomuch"  
       },
       {
       name: "Mrajoy",
@@ -36,7 +36,7 @@ module.exports = {
       },
       {
       name: "Newton",
-      email: "ihateeinstein@gmail.com",
+      email: "atoms@gmail.com",
       password: "apple"  
       },
       {
@@ -49,11 +49,9 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    
+
+    await queryInterface.bulkDelete('People', null, {});
+     
   }
 };
