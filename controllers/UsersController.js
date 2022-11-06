@@ -2,7 +2,6 @@ const router = require('express').Router();
 const {User} = require('../models/index');
 const UsersController = {}; 
 
-
 UsersController.signUp = (req, res) => {   
 
             User.create({
@@ -33,7 +32,5 @@ UsersController.getById = (req, res) => {
                 });
               });
           };
-    
-
-
+     
 module.exports = UsersController;
