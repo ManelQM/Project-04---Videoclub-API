@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   serie.init({
     title: DataTypes.STRING,
     genre: DataTypes.STRING,
-    year: DataTypes.INTEGER
+    toprated: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Serie',

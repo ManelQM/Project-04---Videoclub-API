@@ -30,7 +30,7 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       rented: {
-        type: DataTypes.BOOLEAN,
+        type: Sequelize.BOOLEAN,
       allowNull: false
       },
       createdAt: {

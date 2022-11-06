@@ -21,12 +21,8 @@ module.exports = {
         },
       },
       password: {
-        type: String,
+        type: Sequelize.STRING,
         required: true,
-  
-      },
-      age: {
-        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

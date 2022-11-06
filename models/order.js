@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
   Order.init({
     date: DataTypes.STRING,
     filmId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    rented: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Order',

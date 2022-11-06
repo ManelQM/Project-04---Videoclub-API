@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
   serieorder.init({
     date: DataTypes.STRING,
     serieId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    rented: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Serieorder',

@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       toprated: {
-        type: DataTypes.BOOLEAN,
+        type: Sequelize.BOOLEAN,
       allowNull: false
       },
       createdAt: {
