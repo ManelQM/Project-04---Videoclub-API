@@ -82,6 +82,21 @@ FilmsController.getAll = (req, res) => {
     });
   }
   
-
+  FilmsController.getByToprated = (req, res) => {
+    
+    let trated = req.params.toprated
+    
+    Film.findAll( {where: {toprated: trated}})
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Error no toprated films"
+        });
+      });
+  };
+  
 
   module.exports = FilmsController;

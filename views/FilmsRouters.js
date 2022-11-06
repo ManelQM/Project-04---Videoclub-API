@@ -23,6 +23,7 @@ router.get('/', FilmsController.getAll);
 router.get('/:id', FilmsController.getById);
 router.get('/title/:title', FilmsController.getByTitle);
 router.get('/genre/:genre', FilmsController.getByGenre);
+router.get('/toprated',FilmsController.getByToprated);
 
 
 module.exports = router;
