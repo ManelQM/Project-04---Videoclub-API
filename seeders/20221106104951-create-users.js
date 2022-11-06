@@ -15,8 +15,8 @@ module.exports = {
       password: "signandmeaning"  
       },
       {
-      name: "Stalin",
-      email: "oftogulag@gmail.com",
+      name: "Putin",
+      email: "dontpressthebutton@gmail.com",
       password: "holidaysinsiberia"  
       },
       {
@@ -32,7 +32,7 @@ module.exports = {
       {
       name: "Mrajoy",
       email: "aguantaluis@gmail.com",
-      password: "vivaelvino"  
+      password: "1234"  
       },
       {
       name: "Newton",

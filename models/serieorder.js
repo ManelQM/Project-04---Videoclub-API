@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  serieorder.init({
+  serieorder.init({     
     date: DataTypes.STRING,
     serieId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,

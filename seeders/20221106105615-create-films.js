@@ -35,8 +35,8 @@ module.exports = {
       title: "The Thing",
       genre: "Horror",
       toprated: true
-      }, 
-      
+      } 
+
     ], {});
     
   },
