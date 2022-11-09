@@ -64,7 +64,7 @@ UsersController.getById = (req, res) => {
 UsersController.update = (req, res) => {
   const id = req.params.id;
 
-  if (req.user.User.rol == "administrador" || req.user.User.id == id) {
+  if (req.user.User.rol == "Admin" || req.user.User.id == id) {
 
     User.update(req.body, {
         where: { id: id },
@@ -72,35 +72,32 @@ UsersController.update = (req, res) => {
       .then((num) => {
         if (num == 1) {
           res.send({
-            message: "El usuario ha sido actualizado correctamente.",
+            message: "Updated with success.",
           });
         } else {
           res.send({
-            message: `No se ha podido actualizar el usuario con el id ${id}`,
+            message: "User not updated",
           });
         }
       })
       .catch((err) => {
         res.status(500).send({
           message:
-            "Ha surgido algún error al intentar actualizar el usuario con el id " +
-            id +
-            ".",
+            "Error",
         });
       });
   } else {
     res.send({
-      message: `No tienes permisos para modificar el perfil indicado.`,
+      message: "Access denied",
     });
   }
 };
 
-//BORRAMOS A USUARIO, BUSCANDO POR ID
+
 UsersController.delete = (req, res) => {
   const id = req.params.id;
 
-  if (req.user.User.rol == "administrador" || req.user.User.id == id) {
-    // HACEMOS QUE SOLO PUEDA BORRARLO EL ADMINISTRADOR O EL USUARIO DUEÑO DEL PERFIL
+  if (req.user.User.rol == "Admin" || req.user.User.id == id) {
 
     User.destroy({
         where: { id: id },
@@ -108,24 +105,23 @@ UsersController.delete = (req, res) => {
       .then((num) => {
         if (num == 1) {
           res.send({
-            message: `El usuario con id ${id} ha sido eliminado correctamente.`,
+            message: "User deleted",
           });
         } else {
           res.send({
-            message: `No se ha podido eliminar el usuario con id ${id}.`,
+            message: "I can´t delete this user",
           });
         }
       })
       .catch((err) => {
         res.status(500).send({
           message:
-            "Ha surgido algún error al intentar borrar el usuario con el id " +
-            id,
+            "Error",
         });
       });
   } else {
     res.send({
-      message: `No tienes permisos para borrar el perfil indicado.`,
+      message: "Access denied",
     });
   }
 };
