@@ -62,10 +62,38 @@ UsersController.getById = (req, res) => {
     });
 };
 
+// UsersController.updateuser(async (req, res) => {
+//   try{
+//       let data = req.body
+
+//       let resp = await User.update(
+//           {
+//               name: data.name,
+//               email: data.email,
+//               password: data.password 
+//           }, 
+//           {
+//               where: { id: data.id}
+//           })
+
+//       res.send({
+//           resp: resp,
+//           message: "Se ha actualizado el registro correctamente",
+//           id: data.mail
+//       })
+
+//   } catch(error){
+//       res.send(error)
+//   }
+// })
+
+
+
+
 UsersController.update = (req, res) => {
   const id = req.params.id;
 
-  if (req.user.User.rol == "Admin" || req.user.User.id == id) {
+  if (req.User.id == id) {
     User.update(req.body, {
       where: { id: id },
     })
@@ -82,7 +110,7 @@ UsersController.update = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message: "Error",
+          message: "Error chaval ",
         });
       });
   } else {
@@ -92,33 +120,33 @@ UsersController.update = (req, res) => {
   }
 };
 
-UsersController.delete = (req, res) => {
-  const id = req.params.id;
+// UsersController.delete = (req, res) => {
+//   const id = req.params.id;
 
-  if (req.user.User.rol == "Admin" || req.user.User.id == id) {
-    User.destroy({
-      where: { id: id },
-    })
-      .then((num) => {
-        if (num == 1) {
-          res.send({
-            message: "User deleted",
-          });
-        } else {
-          res.send({
-            message: "I can´t delete this user",
-          });
-        }
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message: "Error",
-        });
-      });
-  } else {
-    res.send({
-      message: "Access denied",
-    });
-  }
-};
+//   if (req.user.User.rol == "Admin" || req.user.User.id == id) {
+//     User.destroy({
+//       where: { id: id },
+//     })
+//       .then((num) => {
+//         if (num == 1) {
+//           res.send({
+//             message: "User deleted",
+//           });
+//         } else {
+//           res.send({
+//             message: "I can´t delete this user",
+//           });
+//         }
+//       })
+//       .catch((err) => {
+//         res.status(500).send({
+//           message: "Error",
+//         });
+//       });
+//   } else {
+//     res.send({
+//       message: "Access denied",
+//     });
+//   }
+// };
 module.exports = UsersController;
