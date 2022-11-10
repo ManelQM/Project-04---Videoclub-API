@@ -2,24 +2,25 @@ const router = require("express").Router();
 const { User } = require("../models/index");
 const UsersController = {};
 
-UsersController.signUp = (req, res) => {
-  User.create({
+UsersController.signUp = async (req, res) => {
+  console.log(req.body);
+  const userCreated = await User.create({
     name: req.body.name,
     email: req.body.email,
-    password: password,
+    password: req.body.password,
   }).catch((err) => {
     res.status(500).json(err);
   });
+  res.json(userCreated);
 };
 
 UsersController.signIn = (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
 
-  usuario
-    .findOne({
-      where: { email: email },
-    })
+  User.findOne({
+    where: { email: email },
+  })
     .then((User) => {
       if (!User) {
         res.status(404).json({ msg: "Not found" });
@@ -65,10 +66,9 @@ UsersController.update = (req, res) => {
   const id = req.params.id;
 
   if (req.user.User.rol == "Admin" || req.user.User.id == id) {
-
     User.update(req.body, {
-        where: { id: id },
-      })
+      where: { id: id },
+    })
       .then((num) => {
         if (num == 1) {
           res.send({
@@ -82,8 +82,7 @@ UsersController.update = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message:
-            "Error",
+          message: "Error",
         });
       });
   } else {
@@ -93,15 +92,13 @@ UsersController.update = (req, res) => {
   }
 };
 
-
 UsersController.delete = (req, res) => {
   const id = req.params.id;
 
   if (req.user.User.rol == "Admin" || req.user.User.id == id) {
-
     User.destroy({
-        where: { id: id },
-      })
+      where: { id: id },
+    })
       .then((num) => {
         if (num == 1) {
           res.send({
@@ -115,8 +112,7 @@ UsersController.delete = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message:
-            "Error",
+          message: "Error",
         });
       });
   } else {
