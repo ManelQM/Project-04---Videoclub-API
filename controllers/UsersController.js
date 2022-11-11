@@ -62,11 +62,11 @@ UsersController.getById = (req, res) => {
     });
 };
 
-// UsersController.updateuser(async (req, res) => {
+// UsersController.update(async (req, res) => {
 //   try{
 //       let data = req.body
 
-//       let resp = await User.update(
+//       let resp = await User.findByPk(
 //           {
 //               name: data.name,
 //               email: data.email,
@@ -90,35 +90,35 @@ UsersController.getById = (req, res) => {
 
 
 
-UsersController.update = (req, res) => {
-  const id = req.params.id;
+// UsersController.update = (req, res) => {
+//   const id = req.params.id;
 
-  if (req.User.id == id) {
-    User.update(req.body, {
-      where: { id: id },
-    })
-      .then((num) => {
-        if (num == 1) {
-          res.send({
-            message: "Updated with success.",
-          });
-        } else {
-          res.send({
-            message: "User not updated",
-          });
-        }
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message: "Error chaval ",
-        });
-      });
-  } else {
-    res.send({
-      message: "Access denied",
-    });
-  }
-};
+//   if (req.User.id == id) {
+//     User.update(req.body, {
+//       where: { id: id },
+//     })
+//       .then((num) => {
+//         if (num == 1) {
+//           res.send({
+//             message: "Updated with success.",
+//           });
+//         } else {
+//           res.send({
+//             message: "User not updated",
+//           });
+//         }
+//       })
+//       .catch((err) => {
+//         res.status(500).send({
+//           message: "Error chaval ",
+//         });
+//       });
+//   } else {
+//     res.send({
+//       message: "Access denied",
+//     });
+//   }
+// };
 
 // UsersController.delete = (req, res) => {
 //   const id = req.params.id;
