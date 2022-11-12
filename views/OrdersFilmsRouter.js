@@ -1,14 +1,15 @@
-const router = require('express').Router();
-
+// const router = require('express').Router();
+const express = require('express')
+const router = express.Router()
 const OrdersController = require('../controllers/OrdersController');
 // const OrdersController = require('../controllers/OrdersController');
 // const OrderFilm = require('../models/order');
 
-router.get('/userid',OrdersController.getById);
+  
+router.get('/orderuser/:userId', OrdersController.getByuserId);
 module.exports = router;
 
-// const express = require('express')
-// const router = express.Router()
+
 
 // const Usuario = require('../models/usuario')
 
