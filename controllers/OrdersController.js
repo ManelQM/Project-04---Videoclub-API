@@ -6,11 +6,12 @@ const OrdersController = {};
  
 OrdersController.getById = (req, res) => {
   const id = req.params.userId
-  Order.findAll( {rented: true},{ where: { id: userId }})
+  Order.findOne({rented: true},{where:{userId:id}})
     .then(data => {
       if (data) {
         res.send(data);
       } else {
+        console.log(res),
         res.status(404).send({
           message: `Dude, this serie with the ${id} its only in your mind.`
         });

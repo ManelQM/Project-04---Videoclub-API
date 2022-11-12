@@ -4,7 +4,7 @@ const OrdersController = require('../controllers/OrdersController');
 // const OrdersController = require('../controllers/OrdersController');
 // const OrderFilm = require('../models/order');
 
-router.get('/:id', OrdersController.getById);
+router.get('/userid',OrdersController.getById);
 module.exports = router;
 
 // const express = require('express')
