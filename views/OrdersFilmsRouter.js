@@ -1,12 +1,9 @@
-// const router = require('express').Router();
-const express = require('express')
-const router = express.Router()
+const router = require('express').Router();
 const OrdersController = require('../controllers/OrdersController');
-// const OrdersController = require('../controllers/OrdersController');
-// const OrderFilm = require('../models/order');
 
   
-router.get('/orderuser/:userId', OrdersController.getByuserId);
+router.get('/rented/:rented', OrdersController.getByRented);
+router.get('/rented/userid', OrdersController.getByUserId);
 module.exports = router;
 
 

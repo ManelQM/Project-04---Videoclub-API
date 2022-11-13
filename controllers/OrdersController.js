@@ -1,16 +1,26 @@
 const router = require("express").Router();
 const  {Order}  = require("../models/index");
-const { Film } = require('../models/index');
-const { User } = require('../models/index');
-var FilmModel  = require('../models').film; 
-
-var userModel  = require('../models').user;
-
 const OrdersController = {};
+
+OrdersController.getByRented = (req, res) => {
+    
+  let rented = req.params.rented
  
-OrdersController.getByuserId = (req, res) => {
+  Order.findAll( {where: {rented: rented}})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Error no rented movies"
+      });
+    });
+};
+
+OrdersController.getByUserId = (req, res) => {
   const userid = req.params.userId;
-  Order.findOne({rented:true}, {where:{userid:userid}})
+  Order.findOne({rented:true}, {where:{userId:userid}})
     .then((data) => {
       if (data) {
         res.send(data);
@@ -25,6 +35,19 @@ OrdersController.getByuserId = (req, res) => {
         message: "Error",
       });
     });
+};
+
+OrdersController.signUp = async (req, res) => {
+  console.log(req.body);
+  const OrderCreated = await Order.create({
+    userId: req.body.userId,
+    filmId: req.body.filmId,
+    rented: req.body.rented,
+    date: req.body.date
+  }).catch((err) => {
+    res.status(500).json(err);
+  });
+  res.json(OrderCreated);
 };
 
 // OrdersController.getById = (req, res) => {
