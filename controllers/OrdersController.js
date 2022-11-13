@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const  {Order}  = require("../models/index");
+const {User} = require("../models/index");
 const OrdersController = {};
 
 OrdersController.getByRented = (req, res) => {
@@ -18,9 +19,9 @@ OrdersController.getByRented = (req, res) => {
     });
 };
 
-OrdersController.getByUserId = (req, res) => {
+OrdersController.getByUser= (req, res) => {
   const userid = req.params.userId;
-  Order.findOne({rented:true}, {where:{userId:userid}})
+  Order.findAll({rented:true}, {where:{userId:userid}})
     .then((data) => {
       if (data) {
         res.send(data);
@@ -32,7 +33,7 @@ OrdersController.getByUserId = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error",
+        message: "Error 500",
       });
     });
 };
@@ -49,27 +50,5 @@ OrdersController.signUp = async (req, res) => {
   });
   res.json(OrderCreated);
 };
-
-// OrdersController.getById = (req, res) => {
-//   const id = req.params.id
-//   Order.findOne({rented: true},{where:{id:id}})
-//     .then(data => {
-//       if (data) {
-//         res.send(data);
-//       } else {
-//         console.log(res),
-//         res.status(404).send({
-//           message: `Dude, this serie with the ${id} its only in your mind.`
-//         });
-//       }
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message: "Error"
-//       });
-//     });
-// };
-
-
 
 module.exports = OrdersController;

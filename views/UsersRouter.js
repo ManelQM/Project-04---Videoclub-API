@@ -1,6 +1,4 @@
-
 const router = require('express').Router();
-
 const UsersController = require('../controllers/UsersController');
 
 // const db = require('../db/db')

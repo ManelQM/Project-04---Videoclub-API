@@ -3,7 +3,8 @@ const OrdersController = require('../controllers/OrdersController');
 
   
 router.get('/rented/:rented', OrdersController.getByRented);
-router.get('/rented/userid', OrdersController.getByUserId);
+router.get('/userid/:userid', OrdersController.getByUser);
+router.post('/neworder', OrdersController.signUp);
 module.exports = router;
 
 
@@ -39,6 +40,3 @@ module.exports = router;
 //     };
 // })
 
-// router.post('/neworder', OrdersController.signUp); //NEW ORDER
-// router.get('/user',OrdersController.getByUserOrder)
-// router.get('/:id', OrdersController.getById);
