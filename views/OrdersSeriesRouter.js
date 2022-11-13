@@ -1,24 +1,10 @@
 const router = require('express').Router();
+const OrdersSeriesController = require('../controllers/OrdersSeriesController');
 
-const {OrderSerie} = require('../models/index');
-
-
-router.get('/', async (req, res) => {
-
-
-    try {
-
-        let resultado = await OrderSerie.findAll();
-        
-        //Si resultado no esta vacia.....
-        if(resultado[0].id !== undefined){
-            res.send(resultado)
-        };
+router.get('/rented/:rented', OrdersSeriesController.getByRented);
+router.get('/userid/:userid', OrdersSeriesController.getByUser);
+router.post('/neworder', OrdersSeriesController.signUp);
 
 
-    } catch (error) {
-        console.log(error);
-    };
-})
 
 module.exports = router;
