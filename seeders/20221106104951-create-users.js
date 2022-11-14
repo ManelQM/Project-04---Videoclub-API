@@ -6,43 +6,51 @@ module.exports = {
 
       await queryInterface.bulkInsert('Users', [{
       name: "Chiquito",
-      email: "unoquevaborrachoperdioydicequietorl@gmail.com",
-      password: "fistro"
+      email: "jarenauer@gmail.com",
+      password: "fistro",
+      rol: "admin"  
        },
       {
       name:"Russell",
       email: "principiamathematica@gmail.com",
-      password: "signandmeaning"  
+      password: "logicalatomism",
+      rol: "user"  
       },
       {
       name: "Putin",
       email: "dontpressthebutton@gmail.com",
-      password: "holidaysinsiberia"  
+      password: "holidaysinsiberia",
+      rol: "user"  
       },
       {
       name: "Schopenhauer",
       email: "worldofwill@gmail.com",
-      password: "mahabharata"  
+      password: "mahabharata",
+      rol: "user"  
       }, 
       {
-      name: "God",
-      email: "ilostmyson@gmail.com",
-      password: "idontlikepeoplesomuch"  
+      name: "Freud",
+      email: "pulsions@gmail.com",
+      password: "dreamsarereal",
+      rol: "user"  
       },
       {
       name: "Mrajoy",
       email: "aguantaluis@gmail.com",
-      password: "1234"  
+      password: "1234",
+      rol: "user"  
       },
       {
       name: "Newton",
       email: "atoms@gmail.com",
-      password: "apple"  
+      password: "apple",
+      rol: "user"  
       },
       {
-      name: "Satan",
-      email: "ishothere@gmail.com",
-      password: "imissmyfather"  
+      name: "Dostoyevsky",
+      email: "crimeandpunishment@gmail.com",
+      password: "brainfever",
+      rol: "user"  
       }
       ], {});
     

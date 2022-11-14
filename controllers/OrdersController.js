@@ -3,6 +3,9 @@ const  {Order}  = require("../models/index");
 const {User} = require("../models/index");
 const OrdersController = {};
 
+
+// GET ALL RENTED MOVIES
+
 OrdersController.getByRented = (req, res) => {
     
   let rented = req.params.rented
@@ -17,7 +20,9 @@ OrdersController.getByRented = (req, res) => {
           err.message || "Error no rented movies"
       });
     });
-};
+}
+
+// GET RENTED MOVIES BY ONE USER
 
 OrdersController.getByUser= (req, res) => {
   const userid = req.params.userId;
@@ -36,7 +41,9 @@ OrdersController.getByUser= (req, res) => {
         message: "Error 500",
       });
     });
-};
+}
+
+// CREATE NEW RENTED MOVIE
 
 OrdersController.signUp = async (req, res) => {
   console.log(req.body);

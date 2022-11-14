@@ -1,6 +1,11 @@
 const router = require("express").Router();
 const {User} = require("../models/index");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config/auth');
 const UsersController = {};
+
+//CREATE NEW USER
 
 UsersController.signUp = async (req, res) => {
   console.log(req.body);
@@ -13,6 +18,8 @@ UsersController.signUp = async (req, res) => {
   });
   res.json(userCreated);
 };
+
+//USER LOGIN
 
 UsersController.signIn = (req, res) => {
   let email = req.body.email;
@@ -42,6 +49,9 @@ UsersController.signIn = (req, res) => {
       res.status(500).json(err);
     });
 };
+
+
+//GET USER BY ID (Pk)
 
 UsersController.getById = (req, res) => {
   const id = req.params.id;

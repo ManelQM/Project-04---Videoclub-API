@@ -2,6 +2,8 @@ const router = require('express').Router();
 const {Serie} = require('../models/index');
 const SeriesController = {};  
 
+//GET SERIE BY ID
+
 SeriesController.getById = (req, res) => {
     const id = req.params.id;
     Serie.findByPk(id)
@@ -19,7 +21,9 @@ SeriesController.getById = (req, res) => {
           message: "Error"
         });
       });
-  };
+  }
+
+  //GET SERIE BY TITLE
 
   SeriesController.getByTitle = (req,res) => {
     const title = req.params.title
@@ -35,6 +39,8 @@ SeriesController.getById = (req, res) => {
     });
   }
 
+//GET BY GENRE
+
   SeriesController.getByGenre = (req,res) => {
    
     const genre = req.params.genre
@@ -49,7 +55,9 @@ SeriesController.getById = (req, res) => {
       });
     });
   }
-  
+
+//GET BY TOPRATED
+
   SeriesController.getByToprated = (req, res) => {
     
     let trated = req.params.toprated
@@ -64,5 +72,7 @@ SeriesController.getById = (req, res) => {
             err.message || "Error no toprated serie"
         });
       });
-  };
+  }
+
+
 module.exports = SeriesController; 

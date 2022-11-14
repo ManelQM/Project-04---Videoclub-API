@@ -17,6 +17,8 @@ const FilmsController = {};
 //     };
 // })
 
+// GET ALL FILMS
+
 FilmsController.getAll = (req, res) => {
 
     Film.findAll()
@@ -29,7 +31,9 @@ FilmsController.getAll = (req, res) => {
             err.message || "Error"
         });
       });
-  };
+  }
+
+ // GET FILMS BY ID
 
   FilmsController.getById = (req, res) => {
     const id = req.params.id; 
@@ -48,8 +52,9 @@ FilmsController.getAll = (req, res) => {
           message: "Error"
         });
       });
-  };
+  }
   
+// GET FILMS BY TITLE 
 
   FilmsController.getByTitle = (req,res) => {
     const title = req.params.title
@@ -64,6 +69,8 @@ FilmsController.getAll = (req, res) => {
       });
     });
   }
+
+// GET FILMS BY GENRE
 
   FilmsController.getByGenre = (req,res) => {
    
@@ -80,6 +87,8 @@ FilmsController.getAll = (req, res) => {
       });
     });
   }
+
+// GET FILMS BY TOPRATED  
   
   FilmsController.getByToprated = (req, res) => {
     

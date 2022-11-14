@@ -2,6 +2,8 @@ const router = require("express").Router();
 const {SerieOrder} = require('../models/index');
 const OrdersSeriesController = {};
 
+// SHOW RENTED SERIES
+
 OrdersSeriesController.getByRented = (req, res) => {
     
     let rented = req.params.rented
@@ -18,6 +20,8 @@ OrdersSeriesController.getByRented = (req, res) => {
       });
   };
   
+//SHOW RENTED SERIES BY ONE USER
+
   OrdersSeriesController.getByUser= (req, res) => {
     const userid = req.params.userId;
     SerieOrder.findAll({rented:true}, {where:{userId:userid}})
@@ -36,7 +40,9 @@ OrdersSeriesController.getByRented = (req, res) => {
         });
       });
   };
-  
+
+  //ADD NEW RENTED SERIE
+
   OrdersSeriesController.signUp = async (req, res) => {
     console.log(req.body);
     const OrderCreated = await SerieOrder.create({
@@ -49,5 +55,7 @@ OrdersSeriesController.getByRented = (req, res) => {
     });
     res.json(OrderCreated);
   };
+  
+
   
   module.exports = OrdersSeriesController;
