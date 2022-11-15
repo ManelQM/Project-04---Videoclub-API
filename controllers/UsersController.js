@@ -1,18 +1,22 @@
 const router = require("express").Router();
-const {User} = require("../models/index");
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const authConfig = require('../config/auth');
+const { User } = require("../models/index");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const authConfig = require("../config/auth");
 const UsersController = {};
 
 //CREATE NEW USER
 
 UsersController.signUp = async (req, res) => {
-  console.log(req.body);
+  password = bcrypt.hashSync(
+    req.body.password,
+    Number.parseInt(authConfig.rounds)
+  );
   const userCreated = await User.create({
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
+    rol: req.body.rol,
   }).catch((err) => {
     res.status(500).json(err);
   });
@@ -30,7 +34,7 @@ UsersController.signIn = (req, res) => {
   })
     .then((User) => {
       if (!User) {
-        res.status(404).json({ msg: "Not found" });
+        res.status(404).json({ message: "Not found" });
       } else {
         if (bcrypt.compareSync(password, User.password)) {
           let token = jwt.sign({ User: User }, authConfig.secret, {
@@ -41,7 +45,9 @@ UsersController.signIn = (req, res) => {
             token: token,
           });
         } else {
-          res.status(401).json({ msg: "Email, User or Password incorrects" });
+          res
+            .status(401)
+            .json({ message: "Email, User or Password incorrects" });
         }
       }
     })
@@ -49,7 +55,6 @@ UsersController.signIn = (req, res) => {
       res.status(500).json(err);
     });
 };
-
 
 //GET USER BY ID (Pk)
 
@@ -72,6 +77,37 @@ UsersController.getById = (req, res) => {
     });
 };
 
+// UPDATE USER
+UsersController.update = (req, res) => {
+  const id = req.params.id;
 
+  if (req.user.User.rol == "admin" || req.user.User.id == id) {
+    User
+      .update(req.body, {
+        where: { id: id },
+      })
+      .then((num) => {
+        if (num == 1) {
+          res.send({
+            message: "User update",
+          });
+        } else {
+          res.send({
+            message: `Not updated ${id}`,
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            "User error"   
+        });
+      });
+  } else {
+    res.send({
+      message: `Access denied`,
+    });
+  }
+};
 
 module.exports = UsersController;
