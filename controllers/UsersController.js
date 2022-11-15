@@ -78,14 +78,14 @@ UsersController.getById = (req, res) => {
 };
 
 // UPDATE USER
+
 UsersController.update = (req, res) => {
   const id = req.params.id;
 
   if (req.user.User.rol == "admin" || req.user.User.id == id) {
-    User
-      .update(req.body, {
-        where: { id: id },
-      })
+    User.update(req.body, {
+      where: { id: id },
+    })
       .then((num) => {
         if (num == 1) {
           res.send({
@@ -99,13 +99,46 @@ UsersController.update = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message:
-            "User error"   
+          message: "User error",
         });
       });
   } else {
     res.send({
       message: `Access denied`,
+    });
+  }
+};
+
+// DELETE USER
+
+UsersController.delete = (req, res) => {
+  const id = req.params.id;
+
+  if (req.user.User.rol == "admin" || req.user.User.id == id) {
+    
+    User.delete({
+        where: { id: id },
+      })
+      .then((num) => {
+        if (num == 1) {
+          res.send({
+            message: `User ${id} deleted with success`,
+          });
+        } else {
+          res.send({
+            message: `You cant delete this user ${id}`,
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            "Error"
+        });
+      });
+  } else {
+    res.send({
+      message: `You dont have access to this field`,
     });
   }
 };

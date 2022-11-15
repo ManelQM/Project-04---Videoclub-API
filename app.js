@@ -12,17 +12,17 @@ app.use (router);
 app.use(morgan('combined', { stream: logger.stream }));
 app.use(cors(corsOptions));
 var corsOptions = {
-    origin: "*",
+    origin: "*",  
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204
   };
 
 app.listen(PORT, () => {
-    console.log (`Gate of Hell nº ${PORT }`);
+    console.log (`Videodrome portal nº ${PORT }`);
     
     db.then( () => {
-        console.log ('This is my db');
+        console.log ('Nice to see you again (DB connected)');
     }).catch(error => {
         console.log ('This thing between us its not working: ' + error)
     }) 
