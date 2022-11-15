@@ -1,4 +1,6 @@
 'use strict';
+const bcrypt = require('bcrypt');
+const authConfig = require('../config/auth');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
