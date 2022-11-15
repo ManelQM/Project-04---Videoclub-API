@@ -115,8 +115,8 @@ UsersController.delete = (req, res) => {
   const id = req.params.id;
 
   if (req.user.User.rol == "admin" || req.user.User.id == id) {
-    
-    User.delete({
+
+    User.destroy<({
         where: { id: id },
       })
       .then((num) => {

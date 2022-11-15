@@ -7,49 +7,49 @@ module.exports = {
       await queryInterface.bulkInsert('Users', [{
       name: "Chiquito",
       email: "jarenauer@gmail.com",
-      password: "fistro",
+      password: bcrypt.hashSync("fistro", Number.parseInt(authConfig.rounds)),
       rol: "admin"  
        },
       {
       name:"Russell",
       email: "principiamathematica@gmail.com",
-      password: "logicalatomism",
+      password: bcrypt.hashSync("logicalatomism", Number.parseInt(authConfig.rounds)),
       rol: "user"  
       },
       {
       name: "Putin",
       email: "dontpressthebutton@gmail.com",
-      password: "holidaysinsiberia",
+      password:  bcrypt.hashSync("holydaysinsiberia", Number.parseInt(authConfig.rounds)),
       rol: "user"  
       },
       {
       name: "Schopenhauer",
       email: "worldofwill@gmail.com",
-      password: "mahabharata",
+      password:  bcrypt.hashSync("mahabharata", Number.parseInt(authConfig.rounds)),
       rol: "user"  
       }, 
       {
       name: "Freud",
       email: "pulsions@gmail.com",
-      password: "dreamsarereal",
+      password: bcrypt.hashSync("dreamsarereal", Number.parseInt(authConfig.rounds)),
       rol: "user"  
       },
       {
       name: "Mrajoy",
       email: "aguantaluis@gmail.com",
-      password: "1234",
+      password:  bcrypt.hashSync("1234", Number.parseInt(authConfig.rounds)),
       rol: "user"  
       },
       {
       name: "Newton",
       email: "atoms@gmail.com",
-      password: "apple",
+      password:  bcrypt.hashSync("apple", Number.parseInt(authConfig.rounds)),
       rol: "user"  
       },
       {
       name: "Dostoyevsky",
       email: "crimeandpunishment@gmail.com",
-      password: "brainfever",
+      password: bcrypt.hashSync("brainfever", Number.parseInt(authConfig.rounds)),
       rol: "user"  
       }
       ], {});

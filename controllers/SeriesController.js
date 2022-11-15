@@ -12,7 +12,7 @@ SeriesController.getById = (req, res) => {
           res.send(data);
         } else {
           res.status(404).send({
-            message: `Dude, this serie with the ${id} its only in your mind.`
+            message: `No serie ${id} `
           });
         }
       })
@@ -34,7 +34,7 @@ SeriesController.getById = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "If you are searching for a Netflix serie your are in the wrong place"
+          err.message || "No matches by title"
       });
     });
   }
@@ -51,7 +51,7 @@ SeriesController.getById = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-        err.message || "We dont have that kind of serie, no love, no drama , just have fun"
+        err.message || "No matches by genre"
       });
     });
   }
