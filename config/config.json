@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "dZfbarTsrHPLohjqzY3Y",
-    "database": "VideoClubSevenSamurai",
+    "database": "railway",
     "host": "containers-us-west-85.railway.app",
     "dialect": "mysql",
     "port": "6382"

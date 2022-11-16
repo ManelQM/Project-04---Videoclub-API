@@ -77,7 +77,7 @@ FilmsController.getAll = (req, res) => {
     const genre = req.params.genre
     console.log (genre, 'estoy en el genre')
     Film.findAll({where: {genre: genre}})
-    .then(data => {
+    .then(data => {  
       res.send(data);
     }) 
     .catch(err => {
