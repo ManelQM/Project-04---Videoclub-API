@@ -3,20 +3,6 @@ const {Film} = require('../models/index');
 const FilmsController = {};    
  
 
-// router.get('/', async (req, res) => {
-
-//     try {
-
-//       let resultado = await Film.findAll();
-        
-//         if(resultado[0].id !== undefined){
-//             res.send(resultado)
-//         };
-//     } catch (error) {
-//         console.log(error);
-//     };
-// })
-
 // GET ALL FILMS
 
 FilmsController.getAll = (req, res) => {
